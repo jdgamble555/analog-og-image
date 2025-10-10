@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     analog({
       ssr: true,
-      static: true,
+      static: false,
       prerender: {
         routes: [],
       },
