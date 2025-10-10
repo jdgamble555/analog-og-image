@@ -9,7 +9,7 @@ export default defineConfig(() => ({
   build: {
     target: ['es2020'],
     rollupOptions: {
-      external: ['sharp']
+      external: ['sharp', '@img/sharp-wasm32', '@img/sharp-linux-x64']
     },
   },
   resolve: {
