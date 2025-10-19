@@ -6,7 +6,7 @@ import { ORIGIN } from '../lib/utils';
   selector: 'app-home',
   standalone: true,
   template: `
-  <main class="flex flex-col gap-5 items-center justify-center my-10">
+  <main class="flex flex-col gap-5 items-center justify-center py-10">
     <h2 class="text-6xl font-semibold">AnalogJS</h2>
     <h3 class="text-4xl font-medium">OG Image Generator</h3>
 
