@@ -21,7 +21,7 @@ import { ORIGIN } from '../lib/utils';
   `,
 })
 export default class HomeComponent {
-  
+
   readonly origin = inject(ORIGIN);
 
   img1 = this.origin + '/api/og-image';
