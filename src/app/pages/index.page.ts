@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { ORIGIN } from '../lib/utils';
+
 
 @Component({
   selector: 'app-home',
@@ -21,9 +22,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export default class HomeComponent {
   
-  private readonly doc = inject(DOCUMENT);
-
-  private readonly origin = this.doc?.location?.origin ?? '';
+  readonly origin = inject(ORIGIN);
 
   img1 = this.origin + '/api/og-image';
 
