@@ -8,7 +8,10 @@ export const ORIGIN = new InjectionToken<string>(
     factory() {
       const doc = inject(DOCUMENT);
       const request = injectRequest();
-      return request?.headers.referer?.slice(0, -1) ?? doc.location.origin;
+      const host = request?.headers.host;
+      const protocol = host?.includes('localhost') ? 'http' : 'https';
+      const origin = `${protocol}://${host}`;
+      return origin ?? doc.location.origin;
     }
   }
 );
