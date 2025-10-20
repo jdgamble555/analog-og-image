@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ORIGIN } from '../lib/utils';
+import { Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -23,6 +24,14 @@ import { ORIGIN } from '../lib/utils';
 export default class HomeComponent {
 
   readonly origin = inject(ORIGIN);
+  readonly meta = inject(Meta);
+
+  constructor() {
+    this.meta.updateTag({
+      name: 'og:image',
+      content: this.origin + '/api/og-image?title=Meta%20Tag%20Title&description=Meta%20Tag%20Description'
+    });
+  }
 
   img1 = this.origin + '/api/og-image';
 
