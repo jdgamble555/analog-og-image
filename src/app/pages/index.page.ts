@@ -29,7 +29,7 @@ export default class HomeComponent {
   constructor() {
     this.meta.updateTag({
       name: 'og:image',
-      content: this.origin + '/api/og-image?title=Meta%20Tag%20Title&description=Meta%20Tag%20Description'
+      content: this.origin + '/api/og-image'
     });
   }
 
