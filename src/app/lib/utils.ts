@@ -7,6 +7,8 @@ export const ORIGIN = new InjectionToken<string>(
   {
     providedIn: 'root',
     factory() {
+      // You could hardcode this, or just hydrate the server value
+      // This shows you how to derive it dynamically
       const doc = inject(DOCUMENT);
       const platformId = inject(PLATFORM_ID);
       const isBrowser = isPlatformBrowser(platformId);
