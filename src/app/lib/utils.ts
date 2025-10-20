@@ -1,5 +1,6 @@
 import { injectRequest } from "@analogjs/router/tokens";
-import { DOCUMENT, inject, InjectionToken } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
+import { DOCUMENT, inject, InjectionToken, PLATFORM_ID } from "@angular/core";
 
 export const ORIGIN = new InjectionToken<string>(
   'firebase-auth',
@@ -7,11 +8,13 @@ export const ORIGIN = new InjectionToken<string>(
     providedIn: 'root',
     factory() {
       const doc = inject(DOCUMENT);
+      const platformId = inject(PLATFORM_ID);
+      const isBrowser = isPlatformBrowser(platformId);
       const request = injectRequest();
       const host = request?.headers.host;
       const protocol = host?.includes('localhost') ? 'http' : 'https';
       const origin = `${protocol}://${host}`;
-      return origin ?? doc.location.origin;
+      return isBrowser ? doc.location.origin : origin;
     }
   }
 );
