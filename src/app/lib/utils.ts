@@ -3,7 +3,7 @@ import { isPlatformBrowser } from "@angular/common";
 import { DOCUMENT, inject, InjectionToken, PLATFORM_ID } from "@angular/core";
 
 export const ORIGIN = new InjectionToken<string>(
-  'firebase-auth',
+  'origin',
   {
     providedIn: 'root',
     factory() {
